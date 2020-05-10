@@ -1,0 +1,87 @@
+.profile-container{
+    width: 100%; /* Largura */
+    max-width: 1180px; /*Largura máxima */
+    padding: 0 30px; /* Espaço entre as bordas*/
+    margin: 32px auto; /* Margem de 32px cima e baixo e auto esquerda e direita*/
+}
+
+.profile-container header{
+    display: flex; /* */
+    align-items: center; /* Tudo alinhado ao centro*/
+}
+
+.profile-container header span{
+    font-size: 20px; /* Tamanho da fonte*/
+    margin-left: 24px; /* Margem esquerda */
+}
+
+.profile-container header img{ 
+    height: 64px; /* Altura*/
+}
+
+.profile-container header a{
+    width: 260px; /* Largura*/
+    margin-left: auto; /*Margem esquerda automatica, máxomo possível a direita*/
+    margin-top: 0; /* */
+}
+
+.profile-container header button{
+    width: 60px; /* Altura*/
+    height: 60px; /* Largura*/
+    border-radius: 4px; /* Bordas arrendondadas*/
+    border: 1px solid #dcdce6; /* */
+    background: transparent; /* */
+    margin-left: 16px; /* Margem esquerda */
+    transition: border-color 0.2s; /* Velocidade de transição de borda ao passar o mouse*/
+}
+
+.profile-container header button:hover{
+    border-color: #999; /* Cor para qual a borda de button mudará*/
+}
+
+.profile-container h1{
+    margin-top: 80px; /* Margem superior*/
+    margin-bottom: 24px; /* Margem inferior*/
+}
+
+.profile-container ul{
+    display: grid; /* */
+    grid-template-columns: repeat(2, 1fr); /* ul com duas colunas de tamanho flexivel, pode usar 1f 1f*/
+    grid-gap: 24px; /* distancia entre cards orizontal e vertical*/
+    list-style: none; /* Tira marcação em  circulo*/
+}
+
+.profile-container ul li{
+    background: #FFF;
+    padding: 24px;
+    border-radius: 8px;
+    position: relative;
+}
+
+.profile-container ul li button{
+    background-color: #FFF;
+    position: absolute; /* Posição será absoluta em relação ao item que o contém*/
+    right: 24px; /* Direita*/
+    top: 24px; /* superior*/
+    border: 0; /* Bordas */
+}
+
+.profile-container ul li button:hover{
+    opacity: 0.8; /* Diminui a opacidade ao entrar com o mouse*/
+}
+
+.profile-container ul li strong{
+    display: block;
+    margin-bottom: 16px;
+    color: #41414d;
+}
+
+.profile-container ul li p + strong{ /*Todo strong que não seja o primeiro. Pode usar também como ...strong:not(:first-child)*/
+    margin-top: 32px;
+}
+
+.profile-container ul li p{
+    color: #737380;
+    line-height: 21px;
+    font-size: 16px;
+}
