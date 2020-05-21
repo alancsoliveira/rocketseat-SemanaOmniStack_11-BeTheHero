@@ -1,7 +1,7 @@
 import React from 'react';
 import { Feather } from '@expo/vector-icons';
 import { useNavigation, useRoute } from '@react-navigation/native';
-import { View, Text, TouchableOpacity, Image, Linking } from 'react-native';
+import { View, FlatList, Text, TouchableOpacity, Image, Linking } from 'react-native';
 import * as MailCompose from 'expo-mail-composer';
 
 import logoImg from '../../assets/logo.png'
@@ -10,6 +10,7 @@ import styles from './styles';
 
 export default function Detail() {
     const navigation = useNavigation();
+
 
     const route = useRoute();
 
@@ -43,25 +44,31 @@ export default function Detail() {
                     <Feather name="arrow-left" size={28} color={"#E02041"} />
                 </TouchableOpacity>
             </View>
+            <FlatList
+                data={[incident]}
+                keyExtractor={incident => String(incident.id)}
+                renderItem={({ item: incident }) => (
 
-            <View style={styles.incident}>
-                <Text style={[styles.incidentProperty], { marginTop: 0, fontWeight: 'bold' }}>ONG:</Text>
-                <Text style={styles.incidentValue}>{incident.name} de {incident.city}/{incident.uf}</Text>
+                    < View style={styles.incident}>
+                        <Text style={[styles.incidentProperty], { marginTop: 0, fontWeight: 'bold' }}>ONG:</Text>
+                        <Text style={styles.incidentValue}>{incident.name} de {incident.city}/{incident.uf}</Text>
 
-                <Text style={styles.incidentProperty}>CASO:</Text>
-                <Text style={styles.incidentValue}>{incident.title}</Text>
+                        <Text style={styles.incidentProperty}>DESCRIÇÃO:</Text>
+                        <Text style={styles.incidentValue}>{incident.description}</Text>
 
-                <Text style={styles.incidentProperty}>VALOR</Text>
-                <Text style={styles.incidentValue}>
-                    {
-                        Intl.NumberFormat('pt-BR', {
-                            style: 'currency',
-                            currency: 'BRL',
-                        }).format(incident.value)
-                    }</Text>
-            </View>
+                        <Text style={styles.incidentProperty}>VALOR</Text>
+                        <Text style={styles.incidentValue}>
+                            {
+                                Intl.NumberFormat('pt-BR', {
+                                    style: 'currency',
+                                    currency: 'BRL',
+                                }).format(incident.value)
+                            }</Text>
+                    </View>
 
-            <View style={styles.contactBox}>
+                )}></FlatList>
+
+            < View style={styles.contactBox}>
                 <Text style={styles.heroTitle}>Salve o dia!</Text>
                 <Text style={styles.heroTitle}>Seja o herói desse caso.</Text>
 
@@ -83,6 +90,7 @@ export default function Detail() {
                     </TouchableOpacity>
                 </View>
             </View>
+
         </View >
     );
 }
