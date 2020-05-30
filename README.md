@@ -3,8 +3,6 @@
 <p>Seja um herói! 🦸‍♂️</p>
 </h1>
 
-
-
 <p align="center" >
   <a href="#fire-prévia-da-aplicação"> :fire: Prévia da Aplicação</a> |
   <a href="#rocket-tecnologias-utilizadas"> :rocket: Tecnologias Utilizadas</a> |
